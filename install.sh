@@ -45,11 +45,14 @@ echo "Getting github repo"
 
 git clone --recurse-submodules "https://github.com/DefinitelyNotSimon13/Catppuccin-Dotfiles" "$HOME"/dotfiles
 
+
 cd "$HOME" || exit 1
 rm -rf .config
 mkdir .config
 mkdir 1_Coding
 cd dotfiles || exit 1
+git checkout personal
+git submodule update --init --recursive
 stow .
 sudo cp nonUserConfig/grub /etc/default/grub -f
 sudo cp nonUserConfig/sddm.conf /etc/sddm.conf -f
