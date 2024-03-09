@@ -53,6 +53,7 @@ cd dotfiles || exit 1
 stow .
 sudo cp nonUserConfig/grub /etc/default/grub -f
 sudo cp nonUserConfig/sddm.conf /etc/sddm.conf -f
+sudo cp nonUserConfig/pacman.conf /etc/pacman.conf -f
 mkdir /usr/share/sddm/themes -p
 sudo cp nonUserConfig/sddmTheme/* /usr/share/sddm/themes/ -rf
 sudo cp nonUserConfig/grubTheme/* /usr/share/grub/themes/ -rf
