@@ -30,14 +30,18 @@ you may delete that file.\n\n"
     exit 1
 fi
 
-mkdir -p "$HOME/.installcache"
-cd "$HOME"/.installcache || exit 1
+mkdir "$HOME"/.installCache
+cd "$HOME"/.installCache || exit 1
+
+git clone "https://github.com/DefinitelyNotSimon13/installScriptV2" .
 
 source installation/pacmanPackages.sh
 
 source installation/installYay.sh
 
 source installation/yayPackages.sh
+
+confirmYN
 
 echo "Done installing stuff!"
 
@@ -71,6 +75,7 @@ echo "Grub and SDDM configured"
 echo "Github"
 gh auth login
 
+rm -rf "$HOME"/.installCache
 continueYN "You should reboot now. Do you want to reboot now?" || exit 1
 
 sudo reboot now
