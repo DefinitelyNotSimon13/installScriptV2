@@ -36,10 +36,13 @@ cd "$HOME"/.installCache || exit 1
 git clone "https://github.com/DefinitelyNotSimon13/installScriptV2" .
 
 source installation/pacmanPackages.sh
+cd "$HOME"/.installCache || exit 1
 
 source installation/installYay.sh
+cd "$HOME"/.installCache || exit 1
 
 source installation/yayPackages.sh
+cd "$HOME"/.installCache || exit 1
 
 confirmYN
 
