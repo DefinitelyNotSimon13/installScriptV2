@@ -23,15 +23,15 @@ sudo pacman -S --noconfirm \
     tmux \
     zsh \
     rofi \
-    breeze \
     waybar \
-    pulseaudio \
     neovim \
     dunst \
     hyprland \
     xdg-desktop-portal-hyprland \
+    xdg-desktop-portal-gtk \
     git \
     polkit \
+    polkit-gnome \
     qt5-wayland \
     qt6-wayland \
     firefox \
@@ -45,7 +45,7 @@ sudo pacman -S --noconfirm \
     qt5-graphicaleffects \
     qt5-svg \
     qt5-quickcontrols2 \
-    neofetch \
+neofetch \
     papirus-icon-theme \
     mpd \
     btop \
@@ -53,16 +53,17 @@ sudo pacman -S --noconfirm \
     dconf-editor \
     ttf-dejavu \
     nwg-look \
-    dconf-editor \
     ddcutil \
     i2c-tools \
     unzip \
     linux-headers \
+    linux-lts-headers \
     pavucontrol \
     networkmanager \
     network-manager-applet \
-    pulseaudio \
-    cliphist \
+    pipewire \
+    stow \
+    pipewire-pulse \
     grim \
     qt5ct \
     qt6ct \
@@ -72,6 +73,20 @@ sudo pacman -S --noconfirm \
     python-gobject \
     pacman-contrib \
     viewnior \
-    lynx \
     thunderbird \
-    breeze
+    zoxide \
+    zip \
+    tree \
+    thefuck \
+    snapper \
+    noto-fonts \
+    noto-fonts-emoji \
+    ncdu \
+    man-db \
+    man-pages \
+    linux-lts \
+    kvantum \
+    github-cli \
+    fzf \
+    evince \
+    brightnessctl

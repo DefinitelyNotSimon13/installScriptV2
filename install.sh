@@ -3,6 +3,7 @@
 source variables/text.sh
 source variables/locations.sh
 source variables/elements.sh
+source functions/functions.sh
 
 # 1. Pacman packages
 # 2. Install YAY
@@ -28,5 +29,47 @@ you may delete that file.\n\n"
     printf "%bExiting...%b\n" "$ITALIC" "$CLEAR"
     exit 1
 fi
+
+mkdir -p "$HOME/.installcache"
+cd "$HOME"/.installcache || exit 1
+
+source installation/pacmanPackages.sh
+
+source installation/installYay.sh
+
+source installation/yayPackages.sh
+
+echo "Done installing stuff!"
+
+echo "Getting github repo"
+
+git clone --recurse-submodules "https://github.com/DefinitelyNotSimon13/Catppuccin-Dotfiles" "$HOME"/dotfiles
+
+cd "$HOME" || exit 1
+rm -rf .config
+mkdir .config
+mkdir 1_Coding
+cd dotfiles || exit 1
+stow .
+sudo cp nonUserConfig/grub /etc/default/grub -f
+sudo cp nonUserConfig/sddm.conf /etc/sddm.conf -f
+mkdir /usr/share/sddm/themes -p
+sudo cp nonUserConfig/sddmTheme/* /usr/share/sddm/themes/ -rf
+sudo cp nonUserConfig/grubTheme/* /usr/share/grub/themes/ -rf
+
+sudo systemctl enable sddm
+
+sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+echo "Grub and SDDM configured"
+
+echo "Github"
+gh auth login
+
+continueYN "You should reboot now. Do you want to reboot now?" || exit 1
+
+sudo reboot now
+
 
 # Pacman
