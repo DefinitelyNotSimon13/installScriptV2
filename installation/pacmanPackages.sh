@@ -13,6 +13,7 @@ if ! confirmYN "Are you sure?"; then
     printf "%bExiting...\n%b" "$ITALIC" "$CLEAR"
     exit 1
 fi
+sudo pacman -Syu
 sudo pacman -S --noconfirm \
     --needed base-devel \
     wayland \
